@@ -16,24 +16,20 @@ private:
     Node *head;
 
 public:
-    Movie(string t) {title = t;}
+    string getTitle() const {return title;}
+    void setTitle(string t) {title = t;}
 
     void outputReviews(Node *head) {
         cout << "Outputting all reviews:" << endl;
         Node *current = head;
         int i = 0;
-        float total = 0.0;
 
         while (current != nullptr) {    // while current is not empty, same as while(!current)
             cout << "\t> Review #" << ++i << ": ";
             cout << current->rating << ": " << current->comments << endl;
 
-            total += current->rating;   // calculate the total rating
             current = current->next;    // set the next node to current and review the data
         }
-        
-        float average = total / i;
-        cout << "\t> Average: " << average << endl;
     }
 
     Node *addNodesToHead(Node *head, float rating, string comments) {
