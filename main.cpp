@@ -13,6 +13,7 @@ struct Node {
 class Movie {
 private:
     string title;
+    Node *head;
 
 public:
     Movie(string t) {title = t;}
@@ -46,11 +47,26 @@ public:
 };
 
 int main() {
-    Movie movie;
+    const int SIZE = 2;
 
+    vector<Movie> movie(SIZE);
     ifstream fin;
     fin.open("comments.txt");
-    
+
+    if (fin.good()) {
+        cout << "Works well!" << endl;
+        
+        for (int i = 0; i < SIZE ; i++) {
+
+        }
+
+        fin.close();
+    }
+    else {
+        cout << "File not found." << endl;
+        return 1;
+    }
+
     Node *head = nullptr;   // initialize
     movie.outputReviews(head);     // output the data after entered all the informations
 
