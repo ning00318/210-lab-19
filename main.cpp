@@ -14,7 +14,7 @@ struct Node {
 class Movie {
 private:
     string title;
-    Node *head;
+    Node *head = nullptr;
 
 public:
     string getTitle() const {return title;}
