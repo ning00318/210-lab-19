@@ -19,7 +19,7 @@ public:
     string getTitle() const {return title;}
     void setTitle(string t) {title = t;}
 
-    void outputReviews(Node *head) {
+    void outputReviews() {
         cout << "Outputting all reviews:" << endl;
         Node *current = head;
         int i = 0;
@@ -32,13 +32,12 @@ public:
         }
     }
 
-    Node *addNodesToHead(Node *head, float rating, string comments) {
+    void addNodesToHead(float rating, string comments) {
         Node *newNode = new Node;       // add new node
         newNode->rating = rating;       // add rating in new node
         newNode->comments = comments;   // add comments in new node
         newNode->next = head;           // add new node in head
-
-        return newNode;     // return new head to the new node
+        head = newNode;
     }
 };
 
@@ -64,7 +63,7 @@ int main() {
     }
 
     Node *head = nullptr;   // initialize
-    movie.outputReviews(head);     // output the data after entered all the informations
+    outputReviews(head);     // output the data after entered all the informations
 
     return 0;
 }
