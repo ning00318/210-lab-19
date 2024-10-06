@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
 using namespace std;
 
 struct Node {
@@ -49,10 +50,15 @@ int main() {
     fin.open("comments.txt");
 
     if (fin.good()) {
+        Movie tempMovie;
+        string title;
         cout << "Works well!" << endl;
         
         for (int i = 0; i < SIZE ; i++) {
+            getline(fin, title);
+            tempMovie.setTitle(title);
 
+            movie[i] = tempMovie;
         }
 
         fin.close();
@@ -62,8 +68,8 @@ int main() {
         return 1;
     }
 
-    Node *head = nullptr;   // initialize
-    outputReviews(head);     // output the data after entered all the informations
+    for (auto i: movie)
+        i.outputReviews();     // output the data after entered all the informations
 
     return 0;
 }
