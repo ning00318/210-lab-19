@@ -4,10 +4,13 @@
 #include <fstream>
 #include <vector>
 #include <cstdlib>
+#include <iomanip>  // set precision
 using namespace std;
 
+double randomDouble(double, double);
+
 struct Node {
-    float rating;
+    double rating;
     string comments;
     Node *next;
 };
@@ -34,7 +37,7 @@ public:
         }
     }
 
-    void addNodesToHead(float rating, string comments) {
+    void addNodesToHead(double rating, string comments) {
         Node *newNode = new Node;       // add new node
         newNode->rating = rating;       // add rating in new node
         newNode->comments = comments;   // add comments in new node
@@ -55,17 +58,19 @@ int main() {
         Movie tempMovie;
         string title;
         string comments;
-        float rating;
+        double rating;
         cout << "Works well!" << endl;
         
         for (int i = 0; i < SIZE ; i++) {
             getline(fin, title);
-            movie[i].setTitle(title);
+            tempMovie.setTitle(title);
+            movie[i] = tempMovie;
 
             for (int j = 0; j < 2 ; j++) {
                 getline(fin, comments);
-                //float rating = 1.0 + static_cast<float>(rand()) % (float)(5.0);
-                movie[i].addNodesToHead(rating, comments);
+                double rating = (rand() / (double)RAND_MAX) * (5.0 - 1.0) + 1.0;
+                tempMovie.addNodesToHead(rating, comments);
+                movie[i] = tempMovie;
             }
         }
 
