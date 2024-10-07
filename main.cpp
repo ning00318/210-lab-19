@@ -62,9 +62,9 @@ int main() {
             getline(fin, title);
             movie[i].setTitle(title);
 
-            for (int j = 0; i < SIZE ; i++) {
+            for (int j = 0; j < 2 ; j++) {
                 getline(fin, comments);
-                float rating ()= 1.0 + static_cast<float>(rand()) % (float)(5.0);
+                //float rating = 1.0 + static_cast<float>(rand()) % (float)(5.0);
                 movie[i].addNodesToHead(rating, comments);
             }
         }
