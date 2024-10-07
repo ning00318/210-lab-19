@@ -44,6 +44,7 @@ public:
 
 int main() {
     const int SIZE = 2;
+    srand(time(0));
 
     vector<Movie> movie(SIZE);
     ifstream fin;
@@ -52,13 +53,20 @@ int main() {
     if (fin.good()) {
         Movie tempMovie;
         string title;
+        string comments;
+        float rating;
         cout << "Works well!" << endl;
         
         for (int i = 0; i < SIZE ; i++) {
             getline(fin, title);
             tempMovie.setTitle(title);
-
             movie[i] = tempMovie;
+
+            for (int j = 0; i < SIZE ; i++) {
+                getline(fin, comments);
+                tempMovie.addNodesToHead(rating, comments);
+                movie[i] = tempMovie;
+            }
         }
 
         fin.close();
