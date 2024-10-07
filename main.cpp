@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <cstdlib>
 using namespace std;
 
 struct Node {
@@ -59,13 +60,12 @@ int main() {
         
         for (int i = 0; i < SIZE ; i++) {
             getline(fin, title);
-            tempMovie.setTitle(title);
-            movie[i] = tempMovie;
+            movie[i].setTitle(title);
 
             for (int j = 0; i < SIZE ; i++) {
                 getline(fin, comments);
-                tempMovie.addNodesToHead(rating, comments);
-                movie[i] = tempMovie;
+                float rating ()= 1.0 + static_cast<float>(rand()) % (float)(5.0);
+                movie[i].addNodesToHead(rating, comments);
             }
         }
 
